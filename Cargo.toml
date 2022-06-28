@@ -1,0 +1,39 @@
+[package]
+authors = ["Jacob Barss-Bailey <jacob@barss-bailey.org>"]
+edition = "2018"
+readme = "README.md"
+name = "plant-cabinet-controller"
+version = "0.1.0"
+
+[dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.6"
+cortex-m-semihosting = "0.3.3"
+
+cortex-m-rtic = "1.0.0"
+systick-monotonic = "1.0.0"
+
+rtt-target = { version = "0.3.1", features = ["cortex-m"] }
+panic-probe = { version = "0.2", features = ["print-rtt"] }
+
+stm32g0 = { version = "0.14", features = ["rt", "stm32g030"] }
+stm32g0xx-hal = { features = ["rt", "stm32g030"],  path = "../stm32g0xx-hal/"}
+nb = "1.0.0"
+
+# this lets you use `cargo fix`!
+[[bin]]
+name = "plant-cabinet-controller"
+test = false
+bench = false
+
+[profile.dev]
+lto = true # better optimizations
+
+[profile.dev.package."*"]
+opt-level = "s" # switch to z for even more
+
+[profile.release]
+codegen-units = 1
+debug = true
+lto = true
+opt-level = "z"
