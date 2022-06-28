@@ -17,7 +17,7 @@ rtt-target = { version = "0.3.1", features = ["cortex-m"] }
 panic-probe = { version = "0.2", features = ["print-rtt"] }
 
 stm32g0 = { version = "0.14", features = ["rt", "stm32g030"] }
-stm32g0xx-hal = { features = ["rt", "stm32g030"],  path = "../stm32g0xx-hal/"}
+stm32g0xx-hal = { features = ["rt", "stm32g030"]}
 nb = "1.0.0"
 
 # this lets you use `cargo fix`!
