@@ -1,8 +1,8 @@
 [package]
-authors = ["Jacob Barss-Bailey <jacob@barss-bailey.org>"]
+authors = ["{{authors}}"]
 edition = "2018"
 readme = "README.md"
-name = "plant-cabinet-controller"
+name = "{{project-name}}"
 version = "0.1.0"
 
 [dependencies]
@@ -22,7 +22,7 @@ nb = "1.0.0"
 
 # this lets you use `cargo fix`!
 [[bin]]
-name = "plant-cabinet-controller"
+name = "{{project-name}}"
 test = false
 bench = false
 
