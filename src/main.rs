@@ -1,7 +1,6 @@
 #![no_std]
 #![no_main]
 
-
 extern crate cortex_m;
 extern crate cortex_m_rt as rt;
 extern crate stm32g0xx_hal as hal;
@@ -18,16 +17,13 @@ mod app {
     use rtt_target::{rprintln, rtt_init_print};
 
     #[shared]
-    struct Shared {
-    }
+    struct Shared {}
 
     #[local]
-    struct Local {
-    }
+    struct Local {}
 
     #[init]
     fn init(ctx: init::Context) -> (Shared, Local, init::Monotonics) {
-
         ctx.device.RCC.ahbenr.write(|w| w.dmaen().set_bit());
         rtt_init_print!();
         rprintln!("good morning!");
@@ -35,11 +31,7 @@ mod app {
         let mut rcc = ctx.device.RCC.constrain();
         let _gpioa = ctx.device.GPIOA.split(&mut rcc);
 
-        (
-            Shared { },
-            Local {  },
-            init::Monotonics(),
-        )
+        (Shared {}, Local {}, init::Monotonics())
     }
 
     #[idle]
